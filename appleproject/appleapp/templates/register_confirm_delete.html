@@ -1,0 +1,24 @@
+<html>
+<head>
+<title>Delete Register Object</title>
+</head>
+<body>
+
+<h1>Register Delete Object</h1>
+<p>Are you sure you want to delete</p>
+
+<ul>
+    <li>
+        <strong>username:</strong>{{ object.username }}<br>
+        <strong>email:</strong>{{ object.email }}<br>
+        <strong>password:</strong>{{ object.password }}
+    </li>
+</ul>
+<form method="POST" action="{% url 'RegisterDeleteView' object.pk %}">
+    {% csrf_token %}
+    <input type="submit" value="confirm delete">
+</form>
+<p><a href="{% url  'RegisterList' %}">cancel</a></p>
+
+</body>
+</html>
