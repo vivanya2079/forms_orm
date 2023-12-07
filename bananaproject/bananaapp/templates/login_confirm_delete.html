@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Delete Login Object</title>
+</head>
+<body>
+
+<h1>Login Delete Object</h1>
+<p>Are you sure you want to delete</p>
+
+<ul>
+    <li>
+        <strong>username:</strong>{{ object.username }}<br>
+        <strong>password:</strong>{{ object.password }}
+    </li>
+</ul>
+<form method="POST" action="{% url 'LoginDeleteView' object.pk %}">
+    {% csrf_token %}
+    <input type="submit" value="confirm delete">
+</form>
+<p><a href="{% url  'LoginList' %}">cancel</a></p>
+
+</body>
+</html>
