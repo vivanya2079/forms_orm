@@ -1,0 +1,23 @@
+<html>
+<head>
+<title>Delete Forgott Object</title>
+</head>
+<body>
+
+<h1>Forgott Delete Object</h1>
+<p>Are you sure you want to delete</p>
+
+<ul>
+    <li>
+        <strong>email:</strong>{{ object.email }}<br>
+        <strong>phone:</strong>{{ object.phone }}
+    </li>
+</ul>
+<form method="POST" action="{% url 'ForgottDeleteView' object.pk %}">
+    {% csrf_token %}
+    <input type="submit" value="confirm delete">
+</form>
+<p><a href="{% url  'ForgottList' %}">cancel</a></p>
+
+</body>
+</html>
